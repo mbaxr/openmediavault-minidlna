@@ -32,6 +32,13 @@ port=$(omv_config_get "//services/minidlna/port")
 rootcontainer=$(omv_config_get "//services/minidlna/rootcontainer")
 strict=$(omv_config_get "//services/minidlna/strict")
 tivo=$(omv_config_get "//services/minidlna/tivo")
+sorting=$(omv_config_get "//services/minidlna/sorting")
+
+if [ "${sorting}" != "" ]; then
+    sorting="force_sort_criteria=${sorting}"
+else
+    sorting="#force_sort_criteria="
+fi
 
 if [ "${rootcontainer}" != "" ]; then
     rootcontainer="root_container=${rootcontainer}"
@@ -65,6 +72,7 @@ strict_dlna=${strict}
 notify_interval=60
 serial=31446138
 model_number=1
+${sorting}
 ${rootcontainer}
 log_level=${log_level}
 EOF
