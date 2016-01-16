@@ -126,6 +126,11 @@ Ext.define("OMV.module.admin.service.minidlna.Settings", {
                 triggerAction : "all",
                 value         : "."
             },{
+                xtype      : "textfield",
+                name       : "sorting",
+                value      : _(""),
+                fieldLabel : _("Force sorting")
+            },{
                 xtype      : "combo",
                 name       : "loglevel",
                 fieldLabel : _("Log Level"),
